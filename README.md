@@ -1,0 +1,2 @@
+# studyProjects
+Simplles C++ projects
