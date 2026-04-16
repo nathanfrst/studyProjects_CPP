@@ -4,13 +4,31 @@ int main(){
     int randNum;
     int guess;
     int tries = 0;
+    char playGame;
+    char restartGame;
 
-    srand(time(NULL));
-    randNum = (rand() % 10) + 1;
+srand(time(NULL));
 
-    std::cout << "Welcome to the number guessing game! " << std::endl;
-
+while(true){
+    std::cout << "Welcome to the number guessing game! Would you like to play? (Y / N)" << std::endl;
+    std::cin >> playGame;
+    if(playGame == 'Y' || playGame == 'y'){
+        std::cout << "Lets get started" << std::endl;
+        randNum = (rand() % 10) + 1;
+        break;
+    }
+        
+    else if(playGame == 'N' || playGame =='n'){
+        std::cout << "Maybe next time! ";
+        return 0;
+    }
+    else{
+        std::cout << "Please put a valid answer. (Y or N only)";
+    }
+}
+    
     do{
+        
         std::cout << "Enter a number (1-10) ";
         std::cin >> guess;
         tries++;
@@ -24,4 +42,5 @@ int main(){
         }
 
     }while (guess != randNum);
-}
+
+ }
