@@ -3,7 +3,7 @@
 int main(){
     int randNum;
     int guess;
-    int tries = 0;
+    int tries;
     char playGame;
     char restartGame;
 
@@ -13,7 +13,6 @@ while(true){
     std::cin >> playGame;
     if(playGame == 'Y' || playGame == 'y'){
         std::cout << "Lets get started" << std::endl;
-        randNum = rand() % 10 + 1;
         break;
     }
         
@@ -25,9 +24,11 @@ while(true){
         std::cout << "Please put a valid answer (Y or N only)." << std::endl;
     }
 }
-
+ do{
+    tries = 0;
+    randNum = rand() % 100 + 1;
     do{
-        std::cout << "Enter a number (1-10) ";
+        std::cout << "Enter a number (1-100) ";
         std::cin >> guess;
         tries++;
         
@@ -41,4 +42,11 @@ while(true){
 
     }while (guess != randNum);
 
- }
+    std::cout << "Would you like to play again? (Y / N) " << std::endl;
+    std::cin >> restartGame;
+
+ }while (restartGame == 'Y' || restartGame == 'y');
+
+std::cout << "Thanks for playing! " << std::endl;
+return 0;
+}
